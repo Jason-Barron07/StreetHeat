@@ -25,6 +25,10 @@ routes.get("/products", (req, res) => {
     products.fetchProduct(req, res);
   });
 
+  routes.post("/products", bodyParser.json(), (req, res) => {
+    products.addProduct(req, res)
+  });
+
 module.exports = {
     express,
     routes

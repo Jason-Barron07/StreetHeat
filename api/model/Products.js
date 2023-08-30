@@ -25,6 +25,22 @@ class Products{
                 })
             })
       }
+
+      addProduct(req, res) {
+        const query = `
+            INSERT INTO Products
+            SET ?;
+        `
+        db.query(query, [req.body],
+             (err) => {
+            if (err) throw err
+            res.json({
+                status: res.statusCode,
+                msg:"Successfully Added"
+            })
+        })
+    };
+
 }
 
 module.exports = Products
