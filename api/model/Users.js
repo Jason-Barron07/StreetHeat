@@ -128,7 +128,7 @@ class Users {
                 })
              })
       }
-      deleteUser(req, res) {
+        deleteUser(req, res) {
         const query = `
         DELETE FROM Users
         WHERE userID = ${req.params.id};
@@ -136,7 +136,7 @@ class Users {
         db.query(query, (err)=>{
             if(err) throw err
             res.json({
-                status: statusCode,
+                status: res.statusCode,
                 msg: "Removal Complete"
             })
         })
