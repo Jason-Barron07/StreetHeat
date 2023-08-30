@@ -29,6 +29,10 @@ routes.get("/products", (req, res) => {
     products.addProduct(req, res)
   });
 
+  routes.patch("/products/:id", bodyParser.json(), (req, res) => {
+    products.updateProducts(req, res);
+  });
+
 module.exports = {
     express,
     routes
