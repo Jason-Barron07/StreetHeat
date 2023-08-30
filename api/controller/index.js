@@ -28,6 +28,10 @@ routes.delete("/user/:id", (req, res) => {
     users.deleteUser(req, res);
   });
 
+  routes.patch("/user/:id", bodyParser.json(), (req, res) => {
+    users.updateUser(req, res);
+  });
+
 // Prducts routes
 
 routes.get("/products", (req, res) => {
