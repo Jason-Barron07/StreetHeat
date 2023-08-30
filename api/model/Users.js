@@ -112,6 +112,7 @@ class Users {
             })
         })
       }
+      
       updateUser(req, res) {
         const query = `
         UPDATE Users

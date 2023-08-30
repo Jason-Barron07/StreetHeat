@@ -27,6 +27,7 @@ routes.post("/register", bodyParser.json(), (req, res) => {
 routes.delete("/user/:id", (req, res) => {
     users.deleteUser(req, res);
   });
+  
 
 // Prducts routes
 
