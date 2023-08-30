@@ -1,6 +1,5 @@
 const db = require("../config");
-const {hash, compare, hashSync} = require('bcrypt')
-const {createToken} = require("../middleware/AuthenticateUser")
+
 
 class Products{
     fetchProducts(req,res){
