@@ -17,12 +17,12 @@ routes.get("/user/:id", (req, res)=>{
 
 // Prducts routes
 
-routes.get("/users", (req, res) => {
-    users.fetchUsers(req, res);
+routes.get("/products", (req, res) => {
+    products.fetchProducts(req, res);
   });
   
-  routes.get("/user/:id", (req, res) => {
-    users.fetchUser(req, res);
+  routes.get("/product/:id", (req, res) => {
+    products.fetchProduct(req, res);
   });
 
 module.exports = {
