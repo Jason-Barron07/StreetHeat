@@ -15,6 +15,19 @@ routes.get("/user/:id", (req, res)=>{
     users.fetchUser(req,res)
 })
 
+
+routes.post("/register", bodyParser.json(), (req, res) => {
+    users.register(req, res);
+  });
+
+  routes.post('/login', bodyParser.json(), (req, res)=>{
+    users.login(req, res)
+});
+
+routes.delete("/user/:id", (req, res) => {
+    users.deleteUser(req, res);
+  });
+
 // Prducts routes
 
 routes.get("/products", (req, res) => {
@@ -37,13 +50,8 @@ routes.get("/products", (req, res) => {
     products.deleteProduct(req, res);
   });
 
-  routes.post("/register", bodyParser.json(), (req, res) => {
-    users.register(req, res);
-  });
 
-  routes.post('/login', bodyParser.json(), (req, res)=>{
-    users.login(req, res)
-})
+
 
 module.exports = {
     express,
