@@ -33,6 +33,10 @@ routes.get("/products", (req, res) => {
     products.updateProducts(req, res);
   });
 
+  routes.delete("/product/:id", (req, res) => {
+    products.deleteProduct(req, res);
+  });
+
 module.exports = {
     express,
     routes
