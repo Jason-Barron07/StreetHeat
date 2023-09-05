@@ -42,10 +42,12 @@
 .navText{
   color:#fff;
   padding-left:20px;
+  font-size:60px;
 }
 
 .navbar .nav-link{
-  color:#fff
+  color:#fff;
+  font-size:25px
 }
 
 

@@ -32,7 +32,6 @@
 
 footer{
     background-color:#620A15;
-    bottom:0;
     position: absolute;
     width:100%;
     padding:1rem;
@@ -54,6 +53,8 @@ footer{
     gap: 1rem;
     float: right;
 }
+
+
 
 
 
