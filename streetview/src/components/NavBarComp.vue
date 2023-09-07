@@ -15,10 +15,10 @@
                     <router-link class="nav-link" to="/">About <i class="bi bi-info-circle-fill"></i></router-link>
                   </li>
                   <li class="nav-item">
-                    <router-link class="nav-link" to="/">Our collection <i class="bi bi-collection-fill"></i></router-link>
+                    <router-link class="nav-link" to="/products">Our collection <i class="bi bi-collection-fill"></i></router-link>
                   </li>
                   <li class="nav-item">
-                    <router-link class="nav-link" to="/">Contact Us <i class="bi bi-telephone-fill"></i></router-link>
+                    <router-link class="nav-link" to="/product">Contact Us <i class="bi bi-telephone-fill"></i></router-link>
                   </li>
                 </ul>
                 <form class="d-flex" role="search">

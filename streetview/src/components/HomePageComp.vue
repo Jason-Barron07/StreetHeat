@@ -44,12 +44,26 @@
     </div>
 
     <h1>Burn Cash, Not Style</h1>
+
     <div class="main-container">
     <div class="img-container"> 
    <img src="https://assets.vogue.com/photos/62bb178d03ab14729d2cd64d/master/w_2560%2Cc_limit/00-story%2520(2).jpg" alt="" class="img">
     </div>
-</div>
-   <div>  
+</div>  
+   <div> 
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://assets.vogue.com/photos/62bb178d03ab14729d2cd64d/master/w_2560%2Cc_limit/00-story%2520(2).jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://pluriverse.blackboxstore.com/wp-content/uploads/2022/12/Senza-titolo-1-3.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://assets.vogue.com/photos/62bb178d03ab14729d2cd64d/master/w_2560%2Cc_limit/00-story%2520(2).jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+      </div> 
    </div>
  
     </div>
@@ -62,8 +76,6 @@
 </script>
 
 <style scoped>
-
-
 .img{
     width:100%;
     height: 600px;

@@ -49,6 +49,17 @@ export default createStore({
       }
     }
   },
+
+  async fetchProduct(context){
+    try{
+      const {data} = await axios.get(`${HeatURL}product/?id=?`)
+      context.commit("setProduct", data.results)
+    }catch(e){
+      context.commit("setMsg", "An error occurred")
+    }},
+ 
+
+
   modules: {
   }
 })
