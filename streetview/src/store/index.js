@@ -1,7 +1,11 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
-
-const HeatURL = ('http://localhost:3002/')
+// import sweet from 'sweetalert'
+// import router from '@/router'
+// import {useCookies} from 'vue3-cookies'
+// const {cookies}= useCookies()
+// import AuthenticateUser  from '@/services/AuthenticateUser'
+const HeatURL = ('https://sheaturl.onrender.com/')
 
 export default createStore({
   state: {
@@ -29,6 +33,9 @@ export default createStore({
   setProduct(state, product){
     state.product = product
   },
+  setDeleteProducts(state, data) {
+    state.products = data
+  },
   setSpinner(state , value){
     state.spinner = value
   },
@@ -50,13 +57,33 @@ export default createStore({
     }
   },
 
-  async fetchProduct(context){
+  async fetchProduct(context, prodID) {
     try{
-      const {data} = await axios.get(`${HeatURL}product/?id=?`)
-      context.commit("setProduct", data.results)
+      const {data} = await axios.get(`${HeatURL}product/${prodID}`)
+      context.commit("setProduct", data.results[0])
+      console.log(data.results);
     }catch(e){
       context.commit("setMsg", "An error occurred")
-    }},
+    }
+  },
+  async fetchUsers(context) {
+    try{
+      const {data} = await axios.get(`${HeatURL}users`)
+      context.commit("setUsers", data.results)
+    }catch(e){
+      context.commit("setMsg", "An error occurred")
+    }
+  },
+
+  async DeleteProducts(context, prodID ) {
+    try{
+      const response = await axios.delete(`${HeatURL}products/${prodID}`)
+      context.commit("setDelProducts", response)
+      location.reload()
+    }catch(e){
+      context.commit("setMsg", "An error occurred")
+    }
+  },
  
 
 
