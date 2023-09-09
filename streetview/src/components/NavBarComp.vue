@@ -20,12 +20,16 @@
                   <li class="nav-item">
                     <router-link class="nav-link" to="/product">Contact Us <i class="bi bi-telephone-fill"></i></router-link>
                   </li>
+                  <li class="nav-item">
+                    <router-link class="nav-link" to="/admin">Admin<i class="bi bi-telephone-fill"></i></router-link>
+                  </li>
                 </ul>
                 <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search ">
-                  <button class="btn btn-outline" type="button"><i class="bi bi-search"></i></button>
+                  <input class="form-control me-2" type="search" placeholder="Search 🔍" aria-label="Search ">
+                  <button class="btn btn-outline" type="button"></button>
                 </form>
               </div>
+              <i class="bi bi-cart-fill"></i>
             </div>
           </nav>
     </div>
@@ -55,5 +59,23 @@
   background-color:#620A15;
 }
 
+i{
+  color:#fff;
+  font-size: 20px;
+}
+
+.pre-search-input {
+  visibility: visible;
+  width: 100%;
+  background: #f5f5f5;
+  color: inherit;
+  padding: 8px 48px;
+  cursor: text;
+}
+.headline-5 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+}
 
 </style>
