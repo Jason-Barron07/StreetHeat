@@ -3,7 +3,7 @@ const db = require("../config");
 
 class Products{
     fetchProducts(req,res){
-        const query =` SELECT prodID, prodName, prodPrice, prodQuan, prodDesc, prodCatergory, prodUrl FROM Products;`
+        const query =` SELECT prodID, prodName, prodPrice, prodQuan, prodBrand, prodCatergory, prodUrl FROM Products;`
         db.query(query,(err, results)=>{
             if (err) throw err
             res.json({
@@ -15,7 +15,7 @@ class Products{
 
     fetchProduct(req, res) {
         const query = `
-        SELECT prodID, prodName, prodPrice, prodQuan, prodDesc, prodCatergory, prodUrl FROM Products WHERE prodID = ${req.params.id};
+        SELECT prodID, prodName, prodPrice, prodQuan, prodBrand, prodCatergory, prodUrl FROM Products WHERE prodID = ${req.params.id};
         `
         db.query(query,(err, results) => {
                 if(err) throw err
@@ -58,13 +58,14 @@ class Products{
              })
       }
 
-      deleteProduct(req, res) {
-        const query = `DELETE FROM Products WHERE prodID = ${req.params.id};
+      deleteProducts(req, res) {
+        const query = `DELETE FROM Products WHERE prodID = ?;
         `
-        db.query(query, (err)=>{
+        db.query(query, [req.params.id],(err, results)=>{
             if(err) throw err
             res.json({
                 status:res.statusCode,
+                results,
                 msg: "Product Removed"
             })
         })
