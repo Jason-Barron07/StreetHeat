@@ -1,14 +1,14 @@
 <template>
     <div>
-        <HomePageComp/>
+        <AdminComp/>
     </div>
 </template>
 
 <script>
-import HomePageComp from '@/components/HomePageComp.vue'
+import AdminComp from '../components/AdminPageComp.vue'
     export default {
         components:{
-            HomePageComp
+            AdminComp
         }
     }
 </script>
