@@ -77,7 +77,7 @@
         </div>
         <div class="d-flex justify-content-center p-4">
             <button class="btn btn-primary moreBtn">
-              <router-link to="/products" class="prodLink">See our collection</router-link>
+              <a href="/products" class="prodLink">See our collection</a>
           </button>
           </div>
         </div>

@@ -6,13 +6,14 @@ import axios from 'axios'
 // const {cookies}= useCookies()
 // import AuthenticateUser  from '@/services/AuthenticateUser'
 const HeatURL = ('https://sheaturl.onrender.com/')
-
+// https://sheaturl.onrender.com/
 export default createStore({
   state: {
     users: null,
     user:null,
     products:null,
     product:null,
+    // addProduct:null,
     spinner:false,
     token:null,
     msg:null
@@ -30,12 +31,17 @@ export default createStore({
   setProducts(state, products){
     state.products = products
   },
-  setProduct(state, product){
-    state.product = product
-  },
   setDeleteProducts(state, data) {
     state.products = data
   },
+  setProduct(state, product){
+    state.product = product
+  },
+
+  // setAddProduct(state,data){
+  //   state.addProduct = data
+  // },
+
   setSpinner(state , value){
     state.spinner = value
   },
@@ -68,24 +74,45 @@ export default createStore({
   },
   async fetchUsers(context) {
     try{
-      const {data} = await axios.get(`${HeatURL}users`)
-      context.commit("setUsers", data.results)
+      const {users} = await axios.get(`${HeatURL}users`)
+      context.commit("setUsers", users.results)
     }catch(e){
       context.commit("setMsg", "An error occurred")
     }
   },
 
-  async DeleteProducts(context, prodID ) {
+  async prodDeleted(context, prodID) {
     try{
-      const response = await axios.delete(`${HeatURL}products/${prodID}`)
-      context.commit("setDelProducts", response)
+      const res = await axios.delete(`${HeatURL}product/${prodID}`)
+      context.commit("setProducts", res.data)
+      console.log("worked");
       location.reload()
-    }catch(e){
-      context.commit("setMsg", "An error occurred")
+    } catch(e) {
+      console.log("did not work");
     }
   },
- 
 
+  // async DeleteProducts(context, prodID) {
+  //   try{
+  //     const response = await axios.delete(`${HeatURL}product/${prodID}`)
+  //     context.commit("setDeleteProducts", response.data)
+  //   }catch(e){
+  //     context.commit("setMsg", "An error occurred")
+  //   }
+  // },
+ 
+  // async addProduct({ commit }, productData) {
+  //   try {
+  //     const response = await axios.post(`${HeatURL}products`, productData);
+  //     // Handle success, e.g., commit the mutation or take any other actions
+  //     commit('setAddProduct', response.data);
+  //     // Reload your data or take other necessary actions
+  //     location.reload();
+  //   } catch (error) {
+  //     // Handle the error here, e.g., display an error message
+  //     console.error('An error occurred:', error);
+  //   }
+  // },
 
   modules: {
   }
