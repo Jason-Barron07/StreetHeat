@@ -34,6 +34,9 @@ export default createStore({
   setDeleteProducts(state, data) {
     state.products = data
   },
+  setDeleteUsers(state, data) {
+    state.users = data
+  },
   setProduct(state, product){
     state.product = product
   },
@@ -60,9 +63,17 @@ export default createStore({
       }catch(e){
         context.commit("setMsg", "An error occurred")
       }
-    }
+    },
+    async fetchUsers(context){
+      try {
+        const { data } = await axios.get(`${HeatURL}users`);
+        context.commit("setUsers", data.results)
+      }catch(e){
+        context.commit("setMsg", "An error occurred")
+        console.log("user not fetched");
+      }
   },
-
+  
   async fetchProduct(context, prodID) {
     try{
       const {data} = await axios.get(`${HeatURL}product/${prodID}`)
@@ -71,18 +82,45 @@ export default createStore({
     }catch(e){
       context.commit("setMsg", "An error occurred")
     }
+
   },
 
-  async prodDeleted(context, prodID) {
+  async DeleteUsers(context, userID ) {
     try{
-      const res = await axios.delete(`${HeatURL}product/${prodID}`)
-      context.commit("setProducts", res.data)
-      console.log("worked");
+      const response = await axios.delete(`${HeatURL}user/${userID}`)
+      context.commit("setDeleteUsers", response.data)
       location.reload()
-    } catch(e) {
-      console.log("did not work");
+    }catch(e){
+      context.commit("setMsg", "An error occurred")
     }
   },
+ 
+
+
+},
+      // const { results, err, msg } = res.data;
+      // if (results) {
+      //   context.commit("setUsers", results);
+      // } else {
+      //   context.commit("setMsg", err || msg);
+      // }
+    // } catch (error) {
+    //   // Handle error here, such as setting an error state in your store
+    //   console.error("Error fetching users:", error);
+    // }
+},)
+
+
+  // async prodDeleted(context, prodID) {
+  //   try{
+  //     const res = await axios.delete(`${HeatURL}product/${prodID}`)
+  //     context.commit("setProducts", res.data)
+  //     console.log("worked");
+  //     location.reload()
+  //   } catch(e) {
+  //     console.log("did not work");
+  //   }
+  // },
 
   // async DeleteProducts(context, prodID) {
   //   try{
@@ -106,6 +144,4 @@ export default createStore({
   //   }
   // },
 
-  modules: {
-  }
-})
+
