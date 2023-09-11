@@ -72,17 +72,6 @@ export default createStore({
       context.commit("setMsg", "An error occurred")
     }
   },
-  async fetchUsers(context) {
-    
-    const res = await axios.get(`${HeatURL}users`)
-    const {results, err, msg} = await res.data;
-    if (results){  context.commit("setUsers", data.results)
-  }else{
-    context.commit("setMsg", err || msg)
-  }
-},
-
-
 
   async prodDeleted(context, prodID) {
     try{
