@@ -82,16 +82,7 @@ export default createStore({
     }catch(e){
       context.commit("setMsg", "An error occurred")
     }
-},
 
-   async DeleteProducts(context, prodID) {
-    try{
-      const response = await axios.delete(`${HeatURL}product/${prodID}`)
-      context.commit("setDeleteProducts", response.data)
-      location.reload()
-    }catch(e){
-      context.commit("setMsg", "An error occurred")
-    }
   },
 
   async DeleteUsers(context, userID ) {

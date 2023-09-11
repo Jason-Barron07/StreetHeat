@@ -51,13 +51,13 @@ routes.get("/products", (req, res) => {
   });
 
   routes.delete("/product/:id", (req, res) => {
-    products.deleteProduct(req, res);
+    products.deleteProducts(req, res);
   });
-
 
 
 
 module.exports = {
     express,
-    routes
+    routes,
+    verifyAToken
 }
