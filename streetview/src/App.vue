@@ -1,6 +1,4 @@
 <template>
-
-  
   <NavBarComp/>
   
   <main>

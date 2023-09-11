@@ -21,16 +21,26 @@
                     <router-link class="nav-link" to="/product">Contact Us <i class="bi bi-telephone-fill"></i></router-link>
                   </li>
                   <li class="nav-item">
-                    <router-link class="nav-link" to="/admin">Admin<i class="bi bi-telephone-fill"></i></router-link>
+                    <router-link class="nav-link" to="/admin">Admin<i class="bi bi-file-earmark-text-fill"></i></router-link>
                   </li>
                 </ul>
                 <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search 🔍" aria-label="Search ">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search ">
                   <button class="btn btn-outline" type="button"></button>
                 </form>
-              </div>
-              <i class="bi bi-cart-fill"></i>
+              </div> <div>
+             <router-link to="/cart"> <i class="bi bi-cart-fill"></i></router-link></div>
             </div>
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+              <li class="nav-item  " >
+                <router-link class="nav-link" to="/login">Login</router-link>
+              </li>
+    
+              <li class="nav-item" >
+                <router-link class="nav-link" id="color" to="/">Register</router-link>
+                </li>
+              
+            </ul>
           </nav>
     </div>
 </template>

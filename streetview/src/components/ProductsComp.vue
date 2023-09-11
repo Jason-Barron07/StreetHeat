@@ -9,6 +9,7 @@
                 <p class="card-text">R{{product.prodPrice}}</p>
                 <p class="card-text">{{product.prodBrand}}</p>
                 <div class="btn text-white">Add to cart</div>
+                <div class="btn text-white">View</div>
               </div>
             </div>
           </div>
