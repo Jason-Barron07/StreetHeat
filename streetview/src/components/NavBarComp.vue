@@ -37,7 +37,13 @@
               </li>
     
               <li class="nav-item" >
-                <router-link class="nav-link" id="color" to="/">Register</router-link>
+                <router-link class="nav-link" id="color" to="/register">Register</router-link>
+                </li>
+
+                <li class="nav-item">
+                  <router-link class="nav-link" to="/login"
+                     @click="logout">Log Out</router-link
+                  >
                 </li>
               
             </ul>
@@ -46,8 +52,23 @@
 </template>
 
 <script>
+
+import {useCookies} from 'vue3-cookies'
+const {cookies} = useCookies()
+
     export default {
-        
+      
+      user(){
+        return this.$store.state.user ||
+        cookies.get('GrantedAccess')
+      },
+
+      methods:{
+        logout(){
+          this.$store.dispatch('logout')
+        }
+      }
+
     }
 </script>
 
