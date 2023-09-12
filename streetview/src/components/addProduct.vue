@@ -5,18 +5,18 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel1">New message</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel1">Product Details</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form @submit.prevent="addForm" class="d-flex flex-column gap-5">
-            <input type="text" v-model="productData.prodID" placeholder="ID" name="" id="" required>
-            <input type="text" v-model="productData.prodName" placeholder="name" name="" id="" required>
-            <input type="number" v-model="productData.quantity" placeholder="quantity" name="" id="" required>
-            <input type="number" v-model="productData.amount" placeholder="amount" name="" id="" required>
-            <input type="text" v-model="productData.Category" placeholder="category" name="" id="" required>
-            <input type="text" v-model="productData.prodUrl" placeholder="image" name="" id="">
-            <button type="submit" class="btn">Add</button>
+        <form @submit.prevent="addProd" class="d-flex flex-column gap-5">
+            <input type="text" v-model="productInfo.prodID" placeholder="Product ID" name="" id="" required>
+            <input type="text" v-model="productInfo.prodUrl" placeholder="Product Image" name="" id="" required>
+            <input type="text" v-model="productInfo.prodName" placeholder="Product Name" name="" id="" required>
+            <input type="number" v-model="productInfo.prodPrice" placeholder="Product Price" name="" id="" required>
+            <input type="text" v-model="productInfo.prodCatergory" placeholder="Category" name="" id="" required>
+            <input type="number" v-model="productInfo.prodQuan" placeholder="Quantity" name="" id="">
+            <button type="submit" class="btn">Add Product</button>
            </form>
       </div>
       <div class="modal-footer">
@@ -31,27 +31,27 @@
     export default {
         data(){
     return{
-        productData:{
+        productInfo:{
         prodID: "",   
         prodName: "",
-        quantity: "",
-        amount: "",
-        Category: "",
+        prodPrice: "",
+        prodQuan: "",
+        prodCatergory: "",
         prodUrl: ""
       }
     }
   },
   methods:{
-          addForm(){
-            this.$store.dispatch('addProduct', this.productData)
+          addProd(){
+            this.$store.dispatch('addProduct', this.productInfo)
           }
         }
     }
 </script>
 <style scoped>
 .btn{
-    background-color: black;
-    border-radius: 1px;
+    background-color: #620A15;
+    border-radius: 1px 0.5em;
     color: white;
 }
 </style>

@@ -2,6 +2,7 @@
     <div>
         <h1 style="text-align:center" >Products</h1>
             <table>
+                
                 <thead>
                     <tr>
                         <th>Product ID</th>
@@ -10,6 +11,7 @@
                         <th>Price</th>
                         <th>Catergory</th>
                         <th>Quantity</th>
+                        <AddProduct/>
                     </tr>
                 </thead>
                 <tbody>
@@ -19,7 +21,7 @@
                         <td class="text">{{product.prodName}}</td>
                         <td class="text">{{product.prodPrice}}</td>
                         <td class="text">{{product.prodCatergory}}</td>
-                        <td class="text">{{product.prodQuan}}</td>  
+                        <td class="text">{{product.prodQuan}}</td> 
                         <td><button  type="button" class="btn btn-danger"  @click="deleteProduct(product.prodID)" fdprocessedid="vr45c">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
               <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"></path>
@@ -74,7 +76,14 @@
 
 <script>
 
+import AddProduct from '../components/addProduct.vue'
+
    export default {
+
+    components:{
+        AddProduct
+    },
+
   computed: {
       products() {
           return this.$store.state.products

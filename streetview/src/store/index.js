@@ -13,7 +13,7 @@ export default createStore({
     user:null,
     products:null,
     product:null,
-    // addProduct:null,
+    addProduct:null,
     spinner:false,
     token:null,
     msg:null
@@ -41,9 +41,9 @@ export default createStore({
     state.product = product
   },
 
-  // setAddProduct(state,data){
-  //   state.addProduct = data
-  // },
+  setAddProduct(state,data){
+    state.addProduct = data
+  },
 
   setSpinner(state , value){
     state.spinner = value
@@ -104,53 +104,35 @@ export default createStore({
     }
   },
  
+   async addProduct({ commit }, productData) {
+    try {
+      const response = await axios.post(`${HeatURL}product`, productData);
+      // Handle success, e.g., commit the mutation or take any other actions
+      commit('setAddProduct', response.data);
+      // Reload your data or take other necessary actions
+      location.reload();
+    } catch (error) {
+      // Handle the error here, e.g., display an error message
+      console.error('An error occurred:', error);
+    }
+  },
+
+  // async addUser({ commit }, userData) {
+  //   try {
+  //     const response = await axios.post(`${HeatURL}users`, userData)
+  //     commit('setAddUser', response.data)
+  //     location.reload()
+  //     console.log('testing');
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // },
 
 
 },
-      // const { results, err, msg } = res.data;
-      // if (results) {
-      //   context.commit("setUsers", results);
-      // } else {
-      //   context.commit("setMsg", err || msg);
-      // }
-    // } catch (error) {
-    //   // Handle error here, such as setting an error state in your store
-    //   console.error("Error fetching users:", error);
-    // }
+ 
 },)
 
 
-  // async prodDeleted(context, prodID) {
-  //   try{
-  //     const res = await axios.delete(`${HeatURL}product/${prodID}`)
-  //     context.commit("setProducts", res.data)
-  //     console.log("worked");
-  //     location.reload()
-  //   } catch(e) {
-  //     console.log("did not work");
-  //   }
-  // },
-
-  // async DeleteProducts(context, prodID) {
-  //   try{
-  //     const response = await axios.delete(`${HeatURL}product/${prodID}`)
-  //     context.commit("setDeleteProducts", response.data)
-  //   }catch(e){
-  //     context.commit("setMsg", "An error occurred")
-  //   }
-  // },
- 
-  // async addProduct({ commit }, productData) {
-  //   try {
-  //     const response = await axios.post(`${HeatURL}products`, productData);
-  //     // Handle success, e.g., commit the mutation or take any other actions
-  //     commit('setAddProduct', response.data);
-  //     // Reload your data or take other necessary actions
-  //     location.reload();
-  //   } catch (error) {
-  //     // Handle the error here, e.g., display an error message
-  //     console.error('An error occurred:', error);
-  //   }
-  // },
 
 
