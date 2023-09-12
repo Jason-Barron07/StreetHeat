@@ -1,11 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LandingView from '../views/LandingView.vue'
+import {useCookies} from 'vue3-cookies'
+const {cookies} = useCookies()
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: LandingView
+    component: LandingView,
+    beforeEnter(){
+      if(!cookies.get('GrantedAccess')){
+        router.push({name:"login"})
+      }
+    }
   },
   {
     path: '/about',
@@ -30,13 +37,24 @@ const routes = [
   {
     path: '/login',
     name: 'login',
-    component: () => import( '../views/LoginView.vue')
+    component: () => import( '../views/LoginView.vue'),
+    afterEnter(){
+      if(!cookies.delete('GrantedAccess')){
+        router.push({name:"home"})
+      }
+    }
   },
   {
     path: '/cart',
     name: 'cart',
     component: () => import( '../views/CartView.vue')
-  }
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import( '../views/RegistrationView.vue')
+  },
+
 ]
 
 const router = createRouter({

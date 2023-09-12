@@ -1,10 +1,10 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
-// import sweet from 'sweetalert'
-// import router from '@/router'
-// import {useCookies} from 'vue3-cookies'
-// const {cookies}= useCookies()
-// import AuthenticateUser  from '@/services/AuthenticateUser'
+import sweet from 'sweetalert'
+import router from '@/router'
+import {useCookies} from 'vue3-cookies'
+import authUser from '@/services/AuthenticateUser'
+const {cookies}= useCookies()
 const HeatURL = ('https://sheaturl.onrender.com/')
 // https://sheaturl.onrender.com/
 export default createStore({
@@ -85,6 +85,21 @@ export default createStore({
 
   },
 
+  async fetchUser(context, userID) {
+    try {
+      const { results } = (await axios.get(`${HeatURL}user/${userID}`))
+        .data;
+      context.commit("setUser", results);
+    } catch (e) {
+      sweet({
+        title: "Error",
+        text: "Oops, an error occured",
+        icon: "error",
+        timer: 3000,
+      });
+    }
+  },
+
   async DeleteProducts(context, prodID) {
     try{
       const response = await axios.delete(`${HeatURL}product/${prodID}`)
@@ -117,16 +132,67 @@ export default createStore({
     }
   },
 
-  // async addUser({ commit }, userData) {
-  //   try {
-  //     const response = await axios.post(`${HeatURL}users`, userData)
-  //     commit('setAddUser', response.data)
-  //     location.reload()
-  //     console.log('testing');
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // },
+  async register(context, payload) {
+    try {
+      const { msg , token, result} = (await axios.post(`${HeatURL}register`, payload))
+        .data;
+      if (msg) {
+        sweet({
+          title: "Registration",
+          text: msg,
+          icon: "success",
+          timer: 3000,
+        });
+        
+        context.dispatch("fetchUsers");
+        cookies.set("GrantedAccess", { token, msg, result });
+        router.push({ name: "login" });
+      } else {
+        sweet({
+          title: "Error",
+          text: "Oops, an error occured",
+          icon: "error",
+          timer: 3000,
+        });
+      }
+    } catch (e) {
+      context.commit(console.log(e));
+    }
+  },
+
+  async login(context, payload) {
+    try {
+      const { msg, token, result } = (
+        await axios.post(`${HeatURL}login`, payload)
+      ).data;
+      if (result) {
+        context.commit("setUsers", { result, msg });
+        cookies.set("GrantedAccess", { token, msg, result });
+        authUser.applyToken(token);
+        sweet({
+          title: msg,
+          text: `Welcome Back, ${result?.firstName} ${result?.lastName}`,
+          icon: "success",
+          timer: 3000,
+        });
+        router.push({ name: "home" });
+      } else {
+        sweet({
+          title: "Error",
+          text: "Oops, an error occured",
+          icon: "error",
+          timer: 3000,
+        });
+      }
+    } catch (e) {
+      context.commit(console.log(e));
+    }
+  },
+  async logout(context) {
+    context.commit("setUser")
+    cookies.remove("GrantedAccess")
+    router.push({ name: "login" })
+  },
 
 
 },

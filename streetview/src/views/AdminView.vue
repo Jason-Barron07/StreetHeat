@@ -39,14 +39,13 @@
                 <thead>
                     <tr>
                         <th>User ID</th>
+                        <th>User Profile</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Age</th>
                         <th>Email</th>
                         <th>Role</th>
                         <th>Gender</th>
-                        <th>User Password</th>
-                        <th>User Profile</th>
                     </tr>
                 </thead>
                 <tbody >
@@ -58,7 +57,7 @@
                         <td class="text">{{ user.userAge }}</td>
                         <td class="text">{{ user.emailAdd }}</td>
                         <td class="text">{{ user.userRole }}</td>
-                        <td class="text">{{ user.gender }}</td>     
+                        <td class="text">{{ user.gender }}</td>    
                         <td><button  type="button" class="btn btn-danger" @click="deleteUser(user.userID)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
               <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"></path>
@@ -76,7 +75,7 @@
 
 <script>
 
-import AddProduct from '../components/addProduct.vue'
+import AddProduct from '@/components/addProduct.vue'
 
    export default {
 

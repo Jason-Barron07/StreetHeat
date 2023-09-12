@@ -1,46 +1,100 @@
 <template>
-    <div>
-        <div class="container animate__animated animate__backInUp 1s">
+    <div class="container">
+      <div class="row">
+        <form class="form" @submit.prevent="login">
+          <div class="form-control-wrapper">
+            <span class="inline">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="email"
+                v-model="payload.emailAdd"
+                required/>
+            </span>
+          </div>
+          <div class="form-control-wrapper">
+            <span class="inline">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="password"
+                minlength="4"
+                maxlength="12"
+                v-model="payload.userPass"
+              />
+            </span>
+          </div>
+          <div class="form-control-wrapper">
+            <div class="col">
+              <button type="submit" class="btn btn-success">
+                Log In
+                <span
+                  v-show="spinner"
+                  class="spinner-border spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+              </button>
+            </div>
+          </div>
+          <div class="form-control-wrapper">
             <div class="row">
-              <form class="p-5" method="POST">
-              <div>
-                <label for="exampleFormControlInput1" class="form-label"> </label>
-                <input name="firstname" type="text" class="form-control" id="exampleFormControlInput1" placeholder="First Name (required) " required oninvalid="this.setCustomValidity('Please enter your name')"
-                oninput="this.setCustomValidity('')">
+              <div class="col">
+                <!-- <router-link class="d-flex justify-content-center text-decoration-none" to="/register" -->
+                  <!-- >Don't have an account ? Click here to register</router-link -->
               </div>
-              <div>
-                <label for="exampleFormControlInput1" class="form-label"></label>
-                <input name="surname" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Surname (required)" required oninvalid="this.setCustomValidity('Please enter your surname')"
-                oninput="this.setCustomValidity('')">
-              </div>
-              <div>
-                <label for="exampleFormControlInput1" class="form-label"></label>
-                <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email Address (required)" required  oninvalid="this.setCustomValidity('Please enter a valid email address')"
-                oninput="this.setCustomValidity('')">
-              </div>
-                <br>
-                <div class="middle d-flex justify-content-center">
-                  <button type="submit" class="btn btn-danger">Login</button>
-                </div>
-              </form>
             </div>
-            </div>
+          </div>
+        </form>
+      </div>
     </div>
-</template>
+  </template>
+  <script>
 
-<script>
-    export default {
-        
-    }
-</script>
-
-<style scoped>
-
-
-
-
-
-
-
-
-</style>
+  import { useCookies } from "vue3-cookies";
+  const {cookies}  = useCookies();
+  
+  export default {
+    components: {
+    },
+    data() {
+      return {
+        payload: {
+          emailAdd: "",
+          userPass: "",
+        },
+        message: null,
+      };
+    },
+    computed: {
+      user() {
+        return this.$store.state.user;
+        //  || JSON.parse( cookies.get('GrantedUserAccess'))
+      },
+      spinner() {
+        return this.$store.state.spinner;
+      },
+    },
+    methods: {
+      login() {
+        this.$store.dispatch("login", this.payload);
+      },
+      logout() {
+        this.$store.dispatch("logout", this.payload)
+      },
+    },
+    beforeCreate() {
+      this.$store.dispatch('fetchUsers')
+    },
+    mounted() {
+    console.log(cookies.get("GrantedAccess"));
+  }
+  };
+  </script>
+  <style scoped>
+  </style>
+  
+  
+  
+  
+  
