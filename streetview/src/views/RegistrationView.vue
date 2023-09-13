@@ -1,13 +1,14 @@
 <template>
-    <div>
-      <div class="container">
-        <div class="row">
-          <form class="form" @submit.prevent="register">
+    <div class="body">
+        <h1 class="reghead">Get in the HEAT</h1>
+      <div class="container justify-content-center align-items-center vh-100">
+        <div class="rows">
+          <form class="lines" @submit.prevent="register">
             <div class="form-control-wrapper">
               <span class="inline">
                 <input
                   type="name"
-                  class="form-control"
+                  class="form-control rowF"
                   placeholder="First Name"
                   v-model="payload.firstName"
                   required
@@ -18,7 +19,7 @@
               <span class="inline">
                 <input
                   type="surname"
-                  class="form-control"
+                  class="form-control rowF"
                   placeholder="Last Name"
                   v-model="payload.lastName"
                   required
@@ -29,7 +30,7 @@
               <span class="inline">
                 <input
                   type="email"
-                  class="form-control"
+                  class="form-control rowF"
                   placeholder="Email"
                   v-model="payload.emailAdd"
                   required
@@ -40,7 +41,7 @@
               <span class="inline">
                 <input
                   type="password"
-                  class="form-control"
+                  class="form-control rowF"
                   placeholder="Password"
                   minlength="4"
                   maxlength="12"
@@ -52,7 +53,7 @@
               <span class="inline">
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control rowF"
                   placeholder="Role"
                   v-model="payload.userRole"
                 />
@@ -60,16 +61,16 @@
             </div>
             <div class="form-control-wrapper">
               <span class="inline">
-                <input
+                <input 
                   type="text"
-                  class="form-control"
+                  class="form-control rowF"
                   v-model="payload.userProfile"
                 />
               </span>
             </div>
             <div class="form-control-wrapper">
               <div class="col">
-                <button type="submit" class="btn btn-success">
+                <button type="submit" class="btn ">
                   Submit
                   <span
                     v-show="spinner"
@@ -79,6 +80,7 @@
                   ></span>
                 </button>
               </div>
+              <div class="object"></div>
             </div>
           </form>
         </div>
@@ -128,4 +130,44 @@
   };
   </script>
   <style scoped>
+
+  *{
+    font-size:30px
+  }
+  .body{
+    background-color:#620A15;
+}
+.reghead{
+    color: white;
+    display: flex;
+    justify-content: center;
+   
+}
+
+h1{
+    font-size:100px;
+}
+.btn{
+    margin-left: 2rem;
+    background-color: #080808;
+    color: #fff;
+}
+
+.btn:hover{
+    background-color:#620A15;
+    border: 2px solid #fff;
+}
+
+.rowF{
+    margin:2rem;
+    width: 50%;
+}
+
+.object{
+    background-color:#D9D9D9;
+    position: absolute;
+    padding:4rem;
+    border-radius: 50%;
+}
+
   </style>

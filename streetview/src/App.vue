@@ -22,4 +22,12 @@ export default {
 
 <style>
 
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
+
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2C3E50;
+}
+
 </style>

@@ -9,7 +9,10 @@
                 <p class="card-text">R{{product.prodPrice}}</p>
                 <p class="card-text">{{product.prodBrand}}</p>
                 <div @click="addToCart(product)" class="btn text-white ">Add to Cart</div>
-                <div class="btn text-white pl-4">View</div>
+                <router-link :to="{ name: 'product', params: { prodID: product.prodID } }"
+                ><button class="btn text-white">
+                  View More
+                </button></router-link>
               </div>
             </div>
           </div>
