@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const {verifyAToken} = require('../middleware/AuthenticateUser')
 const routes = express.Router();
 //import all model's objects
-const { users, products } = require("../model");
+const { users, products, orders } = require("../model");
 
 // User routes
 
@@ -54,6 +54,35 @@ routes.get("/products", (req, res) => {
     products.deleteProducts(req, res);
   });
 
+  // Orders router
+
+routes.get("/orders", (req, res) => {
+  orders.fetchOrders(req, res);
+});
+
+routes.get("/user/:id/carts", (req, res) => {
+  orders.fetchCart(req, res);
+});
+
+routes.post("/user/:id/cart", bodyParser.json(), (req, res) => {
+  orders.addToCart(req, res);
+});
+
+routes.patch("/user/:id/cart/:id", bodyParser.json(), (req, res) => {
+  orders.updateCart(req, res);
+});
+
+routes.patch("/user/:id/cart/:id", bodyParser.json(), (req, res) => {
+  orders.updateCart(req, res);
+});
+
+routes.delete("/user/:id/cart", (req, res) => {
+  orders.clearCart(req, res);
+});
+
+routes.delete("/user/:id/cart/:id", (req, res) => {
+  orders.removeFromCart(req, res);
+});
 
 
 module.exports = {
