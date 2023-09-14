@@ -30,12 +30,17 @@
 
 <style scoped>
 
+*{
+    font-size: 30px;
+}
+
 footer{
     background-color:#620A15;
     position: absolute;
-    width:100%;
     padding:1rem;
+    width:100%;
     color:#fff;
+  
 }
 
 .email{
@@ -53,10 +58,5 @@ footer{
     gap: 1rem;
     float: right;
 }
-
-
-
-
-
 
 </style>

@@ -1,24 +1,21 @@
 <template>
     <div>
-        
         <div>
               <div class="container" v-if="product">
-                <div class="card mb-4 mt-3"  style="width: 30rem; border:none;">
-                    <div class="row g-0">
-                      <div class="col-md-8">
+                  <div class="row" style="margin-top:3rem; display:flex; justify-content:center; align-items:center;">
+                        <div class="card col-4 col-md-6"  style="width: 30rem; border:none;">
                         <img :src="product.prodUrl" class="img-fluid rounded-start" alt="...">
                       </div>
-                      <div class="col-md-4">
-                        <div class="card-body">
-                          <h5 class="card-text">{{product.prodName}}</h5>
+                      
+                        <div class="card-body col-8 col-md-6">
+                          <h5 class="card-text" style="width:100%; margin-top:4rem">{{product.prodName}}</h5>
                           <p class="card-text">R{{product.prodPrice}}</p>
                           <p class="card-text">{{product.prodBrand}}</p>
                           <button class="btn text-white">
                             Add to Cart
                           </button>
                         </div>
-                    </div>
-                </div>
+
             </div>
         </div>
         <div v-else>

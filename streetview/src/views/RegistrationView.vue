@@ -1,7 +1,7 @@
 <template>
     <div class="body">
         <h1 class="reghead">Get in the HEAT</h1>
-      <div class="container justify-content-center align-items-center vh-100">
+      <div class="container justify-content-center align-items-center">
         <div class="rows">
           <form class="lines" @submit.prevent="register">
             <div class="form-control-wrapper">
@@ -60,15 +60,6 @@
               </span>
             </div>
             <div class="form-control-wrapper">
-              <span class="inline">
-                <input 
-                  type="text"
-                  class="form-control rowF"
-                  v-model="payload.userProfile"
-                />
-              </span>
-            </div>
-            <div class="form-control-wrapper">
               <div class="col">
                 <button type="submit" class="btn ">
                   Submit
@@ -80,7 +71,6 @@
                   ></span>
                 </button>
               </div>
-              <div class="object"></div>
             </div>
           </form>
         </div>
@@ -163,11 +153,6 @@ h1{
     width: 50%;
 }
 
-.object{
-    background-color:#D9D9D9;
-    position: absolute;
-    padding:4rem;
-    border-radius: 50%;
-}
+
 
   </style>

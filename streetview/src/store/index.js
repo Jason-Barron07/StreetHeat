@@ -16,7 +16,8 @@ export default createStore({
     addProduct:null,
     spinner:false,
     token:null,
-    msg:null
+    msg:null,
+    cart:[],
   },
   getters: {
 
@@ -53,6 +54,13 @@ export default createStore({
   },
   setMsg(state, msg){
     state.msg = msg
+  },
+  setCart(state, product){
+    state.cart = product
+  },
+  addToCart(state, product){
+    state.cart.push(product)
+    localStorage.setItem('cart', JSON.stringify(state.cart))
   }
   },
   actions: {
@@ -157,6 +165,15 @@ export default createStore({
       }
     } catch (e) {
       context.commit(console.log(e));
+    }
+  },
+
+  async addToCart(context, cart) {
+    try {
+      cart.push(); // You need to specify what you want to push into the cart array
+      localStorage.setItem('checkout', JSON.stringify(cart));
+    } catch (error) { // Use 'error' instead of 'e'
+      alert(error);
     }
   },
 

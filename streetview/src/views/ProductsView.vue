@@ -1,8 +1,12 @@
 <template>
+  <div> <form class="d-flex p-5 justify-content-center" role="search" style="width:30%">
+    <input class="form-control " type="search" placeholder="Search" aria-label="Search ">
+    <button class="btn btn-outline" type="button"><i class="bi bi-search text-white"></i></button>
+  </form></div>
     <div class="container justify-content-center align-items-center">
       <div class="row" v-if="products">
         <div v-for="product in products" :key="product.prodID" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" >
-          <div class="card mt-5" style="width: 18rem;" >
+          <div class="card mt-5" style="width: 18rem; border:none;" >
               <img :src="product.prodUrl" class="card-img-top" alt="">
               <div class="card-body">
                 <p class="card-text">{{product.prodName}}</p>
@@ -67,13 +71,14 @@ import SpinnerCompVue from '../components/SpinnerComp.vue'
 
         methods:{
           addToCart(product) {
-      this.cart.push(product);
+        const data = JSON.parse(localStorage.getItem('cart')) || []
+        const newData = {key: product}
+        data.push(newData)
+        localStorage.setItem('cart', JSON.stringify(data))
     },
-    checkout() {
-      // Send cart data to your Node.js server for database insertion
-      // You would make an HTTP POST request here
-      return this.$store.state.products
-    },
+    // filterProducts(category) {
+    //   this.$store.dispatch('filterProductsByCategory', category);
+    // },
   },
   }
           

@@ -1,18 +1,20 @@
 <template>
-    <div class="container">
+  <div class="body ">
+    <h1 class="text-center text-white">Get in the HEAT</h1>
+    <div class="container align-items-center justify-content-center">
       <div class="row">
         <form class="form" @submit.prevent="login">
           <div class="form-control-wrapper">
             <span class="inline">
               <input
                 type="email"
-                class="form-control"
+                class="form-control rowF"
                 placeholder="email"
                 v-model="payload.emailAdd"
                 required/>
             </span>
           </div>
-          <div class="form-control-wrapper">
+          <div class="form-control-wrapper rowF">
             <span class="inline">
               <input
                 type="password"
@@ -48,6 +50,7 @@
         </form>
       </div>
     </div>
+  </div>
   </template>
   <script>
 
@@ -92,9 +95,37 @@
   };
   </script>
   <style scoped>
+  *{
+    font-size:30px
+  }
+  .body{
+    background-color:#620A15;
+    height: 70vh;
+}
+.head-text{
+    color: white;
+    display: flex;
+    justify-content: center;
+   
+}
+
+h1{
+    font-size:100px;
+}
+.btn{
+    margin-left: 2rem;
+    background-color: #080808;
+    color: #fff;
+    border:none
+}
+
+.btn:hover{
+    background-color:#620A15;
+    border: 2px solid #fff;
+}
+
+.rowF{
+  margin:2rem;
+  width: 100%;
+}
   </style>
-  
-  
-  
-  
-  

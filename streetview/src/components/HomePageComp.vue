@@ -118,10 +118,7 @@ h1{
     border:1px solid black;
 }
 
-.moreBtn{
-    padding:1rem;
-    background-color: #620A15;
-}
+
 
 .prodLink{
     text-decoration: none;
