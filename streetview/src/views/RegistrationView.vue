@@ -29,6 +29,26 @@
             <div class="form-control-wrapper">
               <span class="inline">
                 <input
+                  type="text"
+                  class="form-control rowF"
+                  placeholder="Role"
+                  v-model="payload.userAge"
+                />
+              </span>
+            </div>
+            <div class="form-control-wrapper">
+              <span class="inline">
+                <input
+                  type="text"
+                  class="form-control rowF"
+                  placeholder="Role"
+                  v-model="payload.gender"
+                />
+              </span>
+            </div>
+            <div class="form-control-wrapper">
+              <span class="inline">
+                <input
                   type="email"
                   class="form-control rowF"
                   placeholder="Email"
@@ -59,6 +79,7 @@
                 />
               </span>
             </div>
+
             <div class="form-control-wrapper">
               <div class="col">
                 <button type="submit" class="btn ">
@@ -74,9 +95,7 @@
             </div>
           </form>
         </div>
-        <!-- <div v-else class="row">
-          <SpinnerComp/>
-        </div> -->
+       
       </div>
     </div>
   </template>
@@ -90,6 +109,8 @@
         payload: {
           firstName: "",
           lastName: "",
+          userAge:"",
+          gender:"",
           emailAdd: "",
           userPass: "",
           userRole: "",
