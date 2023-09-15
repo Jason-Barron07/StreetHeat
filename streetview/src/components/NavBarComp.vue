@@ -39,8 +39,7 @@
 
                 <li class="nav-item">
                   <router-link class="nav-link" style="margin-left: 2px;" to="/login"
-                     @click="logout">Logout</router-link
-                  >
+                     @click="logout">Logout</router-link>
                 </li>
               
             </ul>
