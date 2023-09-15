@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="bi bi-clipboard-plus"></i></button>
+        <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add User</button>
        
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -15,12 +15,12 @@
             <input type="text" v-model="userInfo.firstName" placeholder="name" name="" id="">
             <input type="text" v-model="userInfo.lastName" placeholder="surname" name="" id="">
             <input type="text" v-model="userInfo.userAge" placeholder="age" name="" id="">
-            <input type="text" v-model="userInfo.Gender" placeholder="role" name="" id="">
-            <input type="text" v-model="userInfo.userRole" placeholder="email" name="" id="">
-            <input type="text" v-model="userInfo.emailAdd" placeholder="password" name="" id="">
+            <input type="text" v-model="userInfo.gender" placeholder="gender" name="" id="">
+            <input type="text" v-model="userInfo.emailAdd" placeholder="email" name="" id="">
+            <input type="text" v-model="userInfo.userPass" placeholder="password" name="" id="">
+            <input type="text" v-model="userInfo.userRole" placeholder="role" name="" id="">
             <input type="text" v-model="userInfo.userProfile" placeholder="image" name="" id="">
             <button type="submit" class="btn">Add</button>
-            userID, firstName, lastName, userAge, gender, userRole, emailAdd, userPass,userProfile
            </form>
       </div>
       <div class="modal-footer">
@@ -33,7 +33,7 @@
     </div>
 </template>
 <script>
-// userID, firstName, lastName, userAge, gender, userRole, emailAdd, userPass,userProfile
+
     export default {
         data(){
             return{
@@ -60,5 +60,8 @@
     }
 </script>
 <style scoped>
-
+.btn{
+  background-color: #620A15;
+  color: white;
+}
 </style>
