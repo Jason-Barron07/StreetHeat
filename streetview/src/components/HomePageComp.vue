@@ -2,7 +2,7 @@
     <div>
         <h1>Burn Cash, Not Style</h1>
         <div class="main-container">
-        <div class="img-container"> 
+        <div class="img-container d-md-block"> 
        <img src="https://pluriverse.blackboxstore.com/wp-content/uploads/2022/12/Senza-titolo-1-3.jpg" alt="" class="img">
         </div>
     </div>
@@ -142,5 +142,11 @@ h1{
 .card-text{
     font-size:30px
 }
+@media screen and (max-width: 768px){
+  .img-container{
+      display: none;
+  }
+}
+
 
 </style>

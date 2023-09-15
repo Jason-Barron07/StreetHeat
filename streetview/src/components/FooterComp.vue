@@ -1,25 +1,16 @@
 <template>
 
-    <footer class="footer">
-     
-        <div class="container text-center">
-          <div class="row align-items-end footer-row">
-            <div class="col socialLinks">
-                <p><a href="https://github.com/Jason-Barron07" class="bi bi-github"></a></p>
-                <p><a href="https://www.instagram.com/jayy_barron07" class="bi bi-instagram"></a></p>
-                <p><a href="https://www.instagram.com/jayy_barron07" class="bi bi-facebook"></a></p>
-            </div>
-            <div class="col contacts">
-             <p> <i class="bi bi-telephone-fill"> +27 82 604 2972</i></p>
-             <p><i class="bi bi-envelope-fill"> jasonbarronyou222@gmail.com</i></p> 
-            </div>
-            <div class="col">
-              <span>Copyright &copy; 2023</span>
-            </div>
-          </div>
-        </div>
-      
-    </footer>
+  <div class="footer text-center">
+    <p class="foot_info">
+      <br />Powered by: Jason Barron
+      <br/>Email: jasonbarronyou222@gmail.com
+      <br /><i class="bi bi-telephone-fill"> </i> +27 82 604 2972<br />
+      &copy;Copright <br />2023 <br/>
+      <a href="https://github.com/Jason-Barron07" class="bi bi-github"></a>
+      <a href="https://www.instagram.com/jayy_barron07" class="bi bi-instagram"></a>
+      <a href="https://www.instagram.com/jayy_barron07" class="bi bi-facebook"></a>
+    </p>
+</div>
  
 </template>
 
@@ -32,9 +23,9 @@ export default {};
   font-size: 30px;
 }
 
-footer {
+.footer {
   background-color: #620a15;
-  position: absolute;
+  position: relative;
   padding: 1rem;
   width: 100%;
   color: #fff;
@@ -69,5 +60,8 @@ a{
 
 .copyright {
     width: 9rem;
+}
+.bi{
+  padding:0.3rem;
 }
 </style>
