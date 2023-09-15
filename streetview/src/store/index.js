@@ -6,11 +6,12 @@ import {useCookies} from 'vue3-cookies'
 import authUser from '@/services/AuthenticateUser'
 const {cookies}= useCookies()
 const HeatURL = ('https://sheaturl.onrender.com/')
-// https://sheaturl.onrender.com/
 export default createStore({
   state: {
     users: null,
     user:null,
+    addUser:null,
+    editUsers:null,
     products:null,
     product:null,
     addProduct:null,
@@ -45,6 +46,9 @@ export default createStore({
   setAddProduct(state,data){
     state.addProduct = data
   },
+  setAddUser(state,data){
+    state.addUser = data
+  },
 
   setSpinner(state , value){
     state.spinner = value
@@ -61,7 +65,7 @@ export default createStore({
   addToCart(state, product){
     state.cart.push(product)
     localStorage.setItem('cart', JSON.stringify(state.cart))
-  }
+  },
   },
   actions: {
     async fetchProducts(context){
@@ -130,13 +134,31 @@ export default createStore({
    async addProduct({ commit }, productData) {
     try {
       const response = await axios.post(`${HeatURL}product`, productData);
-      // Handle success, e.g., commit the mutation or take any other actions
       commit('setAddProduct', response.data);
-      // Reload your data or take other necessary actions
       location.reload();
     } catch (error) {
-      // Handle the error here, e.g., display an error message
       console.error('An error occurred:', error);
+    }
+  },
+  async addUser({ commit }, userData) {
+    try {
+      const response = await axios.post(`${HeatURL}register`, userData)
+      commit('setAddUser', response.data)
+      location.reload()
+      console.log('testing');
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  async EditUsers(context, editUser) {
+    try {
+      const res = await axios.put(`${HeatURL}user/${editUser.userID}`, editUser);
+      context.commit('setDeleteUsers', res.data);
+      // location.reload();
+      console.log("worked");
+    } catch (error) {
+      console.log(error);
     }
   },
 
@@ -170,9 +192,9 @@ export default createStore({
 
   async addToCart(context, cart) {
     try {
-      cart.push(); // You need to specify what you want to push into the cart array
+      cart.push(); 
       localStorage.setItem('checkout', JSON.stringify(cart));
-    } catch (error) { // Use 'error' instead of 'e'
+    } catch (error) { 
       alert(error);
     }
   },

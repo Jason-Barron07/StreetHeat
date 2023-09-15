@@ -60,6 +60,12 @@ const routes = [
     name: 'contact',
     component: () => import( '../views/ContactView.vue')
   },
+  {
+    path: '/editUser/:userID',
+    name: 'editUser',
+    props: true,
+    component: () => import('../views/EditUsersView.vue')
+  }
 
 ]
 

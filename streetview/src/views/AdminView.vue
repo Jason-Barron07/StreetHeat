@@ -34,7 +34,7 @@
             </table>
 
             <h1 style="text-align:center">Users</h1>
-            
+           
             <table>
                 <thead>
                     <tr>
@@ -46,6 +46,7 @@
                         <th>Email</th>
                         <th>Role</th>
                         <th>Gender</th>
+                        <AddUser/>
                     </tr>
                 </thead>
                 <tbody >
@@ -57,7 +58,8 @@
                         <td class="text">{{ user.userAge }}</td>
                         <td class="text">{{ user.emailAdd }}</td>
                         <td class="text">{{ user.userRole }}</td>
-                        <td class="text">{{ user.gender }}</td>    
+                        <td class="text">{{ user.gender }}</td> 
+                        <td><router-link :to="{name: 'editUser',params:{ userID: user.userID}}" class="btn btn-primary">Edit</router-link></td>
                         <td><button  type="button" class="btn btn-danger" @click="deleteUser(user.userID)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
               <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"></path>
@@ -75,12 +77,17 @@
 
 <script>
 
-import AddProduct from '@/components/addProduct.vue'
+import AddProduct from '@/components/addProduct.vue';
+import AddUser from '@/components/addUser.vue';
+
+
 
    export default {
 
     components:{
-        AddProduct
+        AddProduct,
+        AddUser,
+       
     },
 
   computed: {
@@ -89,7 +96,6 @@ import AddProduct from '@/components/addProduct.vue'
         },
         users(){
             return this.$store.state.users
-            // console.log(this.users)
         }
     },
     mounted() {

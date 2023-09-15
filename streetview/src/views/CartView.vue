@@ -77,7 +77,7 @@
 
   <style scoped>
   *{
-    font-size: 2rem;
+    font-size: 80px;
   }
   table {
     border-collapse: collapse;
@@ -94,7 +94,7 @@ tr:nth-child(even) {
 
 
 .body{
- height: 70vh;
+ height: 150vh;
 }
 
 </style>

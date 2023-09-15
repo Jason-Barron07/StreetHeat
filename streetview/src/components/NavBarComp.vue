@@ -12,7 +12,7 @@
                     <router-link class="nav-link" aria-current="page" to="/">Home <i class="bi bi-house-door-fill"></i></router-link>
                   </li>
                   <li class="nav-item">
-                    <router-link class="nav-link" to="/">About <i class="bi bi-info-circle-fill"></i></router-link>
+                    <router-link class="nav-link" to="/about">About <i class="bi bi-info-circle-fill"></i></router-link>
                   </li>
                   <li class="nav-item">
                     <router-link class="nav-link" to="/products">Our collection <i class="bi bi-collection-fill"></i></router-link>

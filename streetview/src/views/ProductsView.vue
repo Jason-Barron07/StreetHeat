@@ -6,7 +6,7 @@
     <div class="container justify-content-center align-items-center">
       <div class="row" v-if="products">
         <div v-for="product in products" :key="product.prodID" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" >
-          <div class="card mt-5" style="width: 18rem; border:none;" >
+          <div class="card mt-5 " style="width: 18rem; border:none;" >
               <img :src="product.prodUrl" class="card-img-top" alt="">
               <div class="card-body">
                 <p class="card-text">{{product.prodName}}</p>
@@ -24,21 +24,6 @@
         <div v-else class="row">
           <SpinnerCompVue/>
         </div>
-<!-- 
-        <div>
-          <h1>Shopping Cart</h1>
-          <div v-for="(product, index) in products" :key="index">
-            <p>{{ product.prodName }} - ${{ product.price }}</p>
-            <button @click="addToCart(product)">Add to Cart</button>
-          </div>
-          <h2>Cart</h2>
-          <ul>
-            <li v-for="(item, index) in cart" :key="index">
-              {{ item.name }} - ${{ item.price }}
-            </li>
-          </ul>
-          <button @click="checkout">Checkout</button>
-        </div> -->
       </div>
 </template>
 
@@ -76,9 +61,7 @@ import SpinnerCompVue from '../components/SpinnerComp.vue'
         data.push(newData)
         localStorage.setItem('cart', JSON.stringify(data))
     },
-    // filterProducts(category) {
-    //   this.$store.dispatch('filterProductsByCategory', category);
-    // },
+
   },
   }
           
@@ -105,5 +88,7 @@ import SpinnerCompVue from '../components/SpinnerComp.vue'
       cursor: pointer; 
       transition: transform 0.3s ease;
     }
+
+
 
 </style>
