@@ -33,6 +33,22 @@ class Users {
                 })
             })
       }
+
+      addUser(req, res) {
+        const query = `
+            INSERT INTO Users
+            SET ?;
+        `
+        db.query(query, [req.body],
+             (err) => {
+            if (err) throw err
+            res.json({
+                status: res.statusCode,
+                msg:"User Added "
+            })
+        })
+    };
+
       login(req, res) {
         const {emailAdd, userPass} = req.body
         // query
