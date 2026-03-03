@@ -14,7 +14,7 @@ app.use((req, res, next) => {
     res.header("Access-Control-Expose-Headers", "Authorization");
     next();
 });
-app.use(
+app.use(   
     express.static('./static'),
       express.urlencoded({
           extended: true
@@ -32,5 +32,6 @@ routes.get('^/$|/StreetHeat', (req, res)=>{
 
 // Server
 app.listen(port, ()=>{
+    console.log(`The server is running on port ${port}`);
     console.log(`The server is running on port ${port}`);
 })
