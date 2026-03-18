@@ -1,2 +1,2 @@
 # StreetHeat
-Capstone
+Capstone project
